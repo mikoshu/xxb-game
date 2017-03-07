@@ -1,4 +1,21 @@
 var util = {
+    getToken: function(){
+        return '571ef6ebc7b392ca5f042d6b0c1f7663';
+    },
+    getClassId: function(){
+        return '1';
+    },
+    getUserId: function(){
+        return '4475';
+    },
+    getGameId: function(){
+        return '1';
+    },
+    getUrlParams: function(name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    },
     requestPost: function(obj){
         $.ajax({
             url: obj.url,

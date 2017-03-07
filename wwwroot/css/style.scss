@@ -140,6 +140,19 @@ $w:640;
     text-indent: -999px;
     margin:rem(30) auto;
   }
+  .list{
+    span{
+      line-height: rem(60);
+    }
+    .score{
+      line-height: rem(60);
+    }
+    .num{
+      span{
+        margin-top:rem(8);
+      }
+    }
+  }
 }
 
 .tab{
@@ -189,6 +202,7 @@ $w:640;
   margin:rem(20) auto auto auto;
   text-align: center;
   z-index: 9;
+  min-height:rem(600);
   .th{
     padding:0 rem(15);
     background: #f6f6f6;
@@ -199,7 +213,7 @@ $w:640;
   span{
     float: left;
     display: block;
-    line-height: rem(80);
+    line-height: rem(70);
   }
   .num{
     width:rem(100);
@@ -215,7 +229,7 @@ $w:640;
       background: #f6f6f6;
       color:#999;
       font-size: rem(24);
-      margin:rem(18) auto;
+      margin:rem(13) auto;
     }
     img{
       width:rem(30);
@@ -226,7 +240,7 @@ $w:640;
     width:rem(122);
     font-size:rem(24);
     font-weight: normal;
-    line-height: rem(60);
+    line-height: rem(70);
     margin:0;
   }
   .name{  
@@ -242,6 +256,9 @@ $w:640;
     color:#333;
     font-size:rem(26);
     border-bottom:1px solid #fbfbfb;
+    &:last-child{
+      border:none;
+    }
     .score{
       color:#28b197;
     }
@@ -346,6 +363,11 @@ $w:640;
   }
 }
 
+.class-list{
+  .name{
+    width:rem(320);
+  }
+}
 
 
 
