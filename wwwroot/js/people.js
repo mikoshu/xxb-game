@@ -40,7 +40,7 @@ people.prototype.level = function(score){ // 难度设置
     //     this.pre = 200;
     // }
     if(score > 150){
-        this.num = parseInt(score/150) + 3 > 15 ? 15 : parseInt(score/1500) + 3 ;
+        this.num = parseInt(score/150) + 3 > 15 ? 15 : parseInt(score/150) + 3 ;
         this.baseSpeed =  400 - parseInt(score/200)*20;
     } 
     
