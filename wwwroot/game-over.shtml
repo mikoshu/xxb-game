@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>游戏结束</title>
+    <meta charset="utf-8" />
+    <meta name="screen-orientation" content="portrait"/>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/flexible.js"></script>
+</head>
+
+<body>
+   <div class="game-over">
+   		<h3 class="title">您本次游戏得分</h3>
+   		<p class="score">5792</p>
+   		<a href="#" class="retry-btn">再来一次</a>
+   		<ul class="tab clearfix">
+   			<li class="on" >班级排名<img src="images/icon.png" alt=""></li>
+   			<li>全明星排名</li>
+   		</ul>
+   		<div class="list">
+   			<ul>
+   				<li class="th clearfix">
+	   				<span class="num">排名</span>
+	   				<span class="name">用户名</span>
+	   				<span class="star">守护明星</span>
+	   				<span class="score">分数</span>
+	   			</li>
+   			</ul>
+   			<ul class="table">
+   				<li class="tr clearfix">
+	   				<span class="num"><span>01</span></span>
+	   				<span class="name">fuck</span>
+	   				<span class="star">周杰伦</span>
+	   				<span class="score">1788</span>
+	   			</li>
+	   			<li class="tr on clearfix">
+	   				<span class="num"><span>01</span></span>
+	   				<span class="name">fuck</span>
+	   				<span class="star">周杰伦</span>
+	   				<span class="score">1788</span>
+	   			</li>
+	   			<li class="tr clearfix">
+	   				<span class="num"><span>01</span></span>
+	   				<span class="name">fuck</span>
+	   				<span class="star">周杰伦</span>
+	   				<span class="score">1788</span>
+	   			</li>
+	   			<li class="tr clearfix">
+	   				<span class="num"><span>01</span></span>
+	   				<span class="name">fuck</span>
+	   				<span class="star">周杰伦</span>
+	   				<span class="score">1788</span>
+	   			</li>
+   			</ul>
+   		</div>
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,457 @@
+*, *:before, *:after {
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  -webkit-text-size-adjust:none;
+  -ms-text-size-adjust:none;
+  text-size-adjust:none;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3,
+h4, h5, h6, pre, code, form, field set, legend,
+input, textarea, p, blockquote, th, td {
+  margin:0;
+  padding:0;
+	-webkit-appearance:none;
+}
+
+table {
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+fieldset, img {
+  border:0;
+}
+
+address, caption, cite, code,
+dfn, em, strong, th, var {
+  font-style:normal;
+  font-weight:normal;
+}
+
+li {
+  list-style:none;
+}
+
+caption, th {
+  text-align:left;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size:100%;
+  font-weight:normal;
+}
+
+q:before,
+q:after {
+  content:"";
+}
+
+abbr, acronym {
+  border:0;
+  font-variant:normal;
+}
+
+sup {
+  vertical-align:text-top;
+}
+
+sub {
+  vertical-align:text-bottom;
+}
+
+input, textarea, select {
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+
+input:password {
+  ime-mode:disabled;
+}
+
+*:focus {
+  outline:none;
+}
+
+ul {
+  margin:0;
+	list-style:none;
+}
+html,body{ font-family: "微软雅黑"; height:100%;}
+a{ text-decoration: none;}
+.clearfix:after { content: ""; height: 0; visibility: hidden; display: block; clear: both; }
+.clearfix { zoom: 1; }
+
+$w:640;
+@function rem($n){
+  @return ($n/($w/10)) + rem;
+}
+
+@mixin transition($a){
+  transition:$a;
+  -webkit-transition:$a;
+}
+
+@mixin transform($a){
+  transform:$a;
+  -webkit-transform:$a;
+}
+
+@mixin backgroundSize($a){
+  background-size: $a;
+  -webkit-background-size: $a;
+}
+
+
+
+
+
+
+
+
+
+.game-over{
+  height: 100%;
+  background: url(../images/over-bg.jpg) no-repeat;
+  @include backgroundSize(100% auto);
+  color:#333;
+  .title{
+    padding-top: rem(40);
+    font-size:rem(26);
+    line-height: rem(26);
+    text-align: center;
+  }
+  .score{
+    text-align: center;
+    font-size:rem(64);
+    line-height: rem(64);
+    margin-top:rem(25);
+    font-weight: bold;
+  }
+  .retry-btn{
+    display: block;
+    width:rem(307);
+    height:rem(73);
+    background: url(../images/retry-btn.png) no-repeat;
+    @include backgroundSize(100% 100%);
+    overflow: hidden;
+    text-indent: -999px;
+    margin:rem(30) auto;
+  }
+}
+
+.tab{
+  position: relative;
+  width:rem(360);
+  height: rem(56);
+  margin:rem(56) auto auto auto;
+  border:rem(4) solid #333;
+  border-radius:rem(56);
+  li{
+    position: absolute;
+    left:rem(-4);
+    top:rem(-4);
+    width:50%;
+    font-size:rem(26);
+    height:rem(56);
+    line-height: rem(48);
+    text-align: center;
+    font-weight: bold;
+    border:rem(4) solid transparent;
+    img{
+      display: none;
+      width:rem(44);
+      height:rem(40);
+      vertical-align: rem(-9);
+    }
+    &:last-child{
+      left:auto;
+      right:rem(-4);
+    }
+  }
+  .on{
+    background: #28b197;
+    border-color: #333;
+    border-radius:rem(56);
+    img{
+      display: inline-block;
+    }
+  }
+}
+
+.list{
+  position: relative;
+  width:rem(580);
+  border:rem(4) solid #333;
+  border-radius:rem(10);
+  margin:rem(20) auto auto auto;
+  text-align: center;
+  z-index: 9;
+  .th{
+    padding:0 rem(15);
+    background: #f6f6f6;
+    color:#999;
+    font-size:rem(24);
+    border-radius:rem(10) rem(10) 0 0;
+  }
+  span{
+    float: left;
+    display: block;
+    line-height: rem(60);
+  }
+  .num{
+    width:rem(100);
+    text-align: center;
+    span{
+      float: none;
+      display: block;
+      width:rem(44);
+      height: rem(44);
+      text-align: center;
+      line-height: rem(44);
+      border-radius: 50%;
+      background: #f6f6f6;
+      color:#999;
+      font-size: rem(24);
+      margin:rem(8) auto;
+    }
+  }
+  .score{
+    width:rem(122);
+    font-size:rem(24);
+    font-weight: normal;
+    line-height: rem(60);
+    margin:0;
+  }
+  .name{  
+    width:rem(160);
+  }
+  .star{
+    width:rem(160);
+  }
+  .table{
+    padding:0 rem(15);
+  }
+  .tr{
+    color:#333;
+    font-size:rem(26);
+    border-bottom:1px solid #fbfbfb;
+    .score{
+      color:#28b197;
+    }
+  }
+  .on{
+    width:rem(600);
+    height:rem(93);
+    padding:rem(15) rem(25);
+    background: url(../images/list-on.png) no-repeat;
+    @include backgroundSize(100% 100%);
+    margin-left:rem(-29);
+    border:none;
+    color:#fff;
+    .num{
+      span{
+        background: #fff;
+        color:#28b197;
+      }
+    }
+    .score{
+      color:#fff;
+    }
+  }
+
+}
+
+.charts{
+  height: 100%;
+  background: url(../images/charts-bg.jpg) no-repeat;
+  @include backgroundSize(100% auto);
+  color:#333;
+  padding-top: rem(28);
+  .tab{
+    margin-top:0;
+    .on{
+      background: #fff;
+    }
+  }
+  .list{
+    margin-top:rem(35);
+    background: #fff;
+  }
+}
+
+.my-box{
+  position: relative;
+  width:rem(580);
+  margin: rem(-15) auto auto auto;
+  border:rem(4) solid #333;
+  border-radius: rem(10);
+  background: #ffc601;
+  padding:rem(25) rem(15) rem(15);
+  .my{
+    font-size:rem(26);
+    line-height: rem(48);
+    &>span{
+      display: block;
+      float:left;
+    }
+    .my-num{
+      width: rem(100);
+      text-align: center;
+      font-size: rem(20);
+      span{
+        display: inline-block;
+        width: rem(48);
+        height:rem(48);
+        line-height: rem(48);
+        text-align: center;
+        color:#fff;
+        background: #cc9e01;
+        border-radius: 50%;
+      }
+    }
+    .my-high{
+      width: rem(320);
+    }
+    .my-score{
+      text-align: center;
+      width:rem(122);
+    }
+
+  }
+  .cost-btn{
+    display: block;
+    width:rem(444);
+    height:rem(81);
+    margin:rem(10) auto auto auto;
+    background: url(../images/cost-btn.png) no-repeat;
+    @include backgroundSize(100% 100%);
+    overflow: hidden;
+    text-indent: -999px;
+  }
+  .flowers{
+    position: absolute;
+    right:rem(10);
+    bottom: rem(14);
+    width:rem(45);
+    height: rem(50);
+    background: url(../images/flows.png) no-repeat;
+    @include backgroundSize(100% 100%);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
