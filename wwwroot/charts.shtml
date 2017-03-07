@@ -27,19 +27,19 @@
    			</ul>
    			<ul class="table">
    				<li class="tr clearfix">
-	   				<span class="num"><span>01</span></span>
+	   				<span class="num"><img src="images/no1.png" alt=""></span>
 	   				<span class="name">fuck</span>
 	   				<span class="star">周杰伦</span>
 	   				<span class="score">1788</span>
 	   			</li>
 	   			<li class="tr clearfix">
-	   				<span class="num"><span>01</span></span>
+	   				<span class="num"><img src="images/no2.png" alt=""></span>
 	   				<span class="name">fuck</span>
 	   				<span class="star">周杰伦</span>
 	   				<span class="score">1788</span>
 	   			</li>
 	   			<li class="tr clearfix">
-	   				<span class="num"><span>01</span></span>
+	   				<span class="num"><img src="images/no3.png" alt=""></span>
 	   				<span class="name">fuck</span>
 	   				<span class="star">周杰伦</span>
 	   				<span class="score">1788</span>

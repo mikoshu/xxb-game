@@ -199,7 +199,7 @@ $w:640;
   span{
     float: left;
     display: block;
-    line-height: rem(60);
+    line-height: rem(80);
   }
   .num{
     width:rem(100);
@@ -215,7 +215,11 @@ $w:640;
       background: #f6f6f6;
       color:#999;
       font-size: rem(24);
-      margin:rem(8) auto;
+      margin:rem(18) auto;
+    }
+    img{
+      width:rem(30);
+      vertical-align: rem(-30);
     }
   }
   .score{
