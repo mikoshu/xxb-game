@@ -20,6 +20,7 @@ var c_id = util.getClassId();
 var u_id = util.getUserId();
 var game_id = util.getGameId();
 var imgStar = document.getElementById('star');
+var myScore = document.getElementById('score');
 
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
     var min_size = Math.min(w, h);
@@ -83,9 +84,11 @@ function shake(){
     if(!isShaked){
         isShaked = true;
         canvas.className = 'ani-shake';
+        myScore.className = 'ani-scale';
         setTimeout(function(){
             canvas.className = '';
-        },120)
+            myScore.className = '';
+        },220)
     }
     isShaked = false;
 }

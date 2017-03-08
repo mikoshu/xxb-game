@@ -4,7 +4,7 @@ var me = function(){
 
 me.prototype.init = function(){
     this.r = 50*radio;
-    this.R = 100*radio;
+    this.R = 150*radio;
     this.width = 240*radio;
     this.height = 240*radio;
     this.x = win_w/2;
@@ -14,7 +14,7 @@ me.prototype.init = function(){
     this.toY = 0; // 记录到达下一地点y位置
     this.isMove = false;
     this.imgIndex = 0;
-    this.pre = 1; // 每隔两帧图片切换一次
+    this.pre = 1; // 每隔n帧图片切换一次
     //this.draw();
 }
 

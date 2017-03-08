@@ -1,15 +1,19 @@
 var util = {
     getToken: function(){
-        return '571ef6ebc7b392ca5f042d6b0c1f7663';
+        return this.getUrlParams('token');
+        //return '571ef6ebc7b392ca5f042d6b0c1f7663';
     },
     getClassId: function(){
-        return '1';
+        return this.getUrlParams('c_id');
+        //return '1';
     },
     getUserId: function(){
-        return '4475';
+        return this.getUrlParams('u_id');
+        //return '4475';
     },
     getGameId: function(){
-        return '1';
+        return this.getUrlParams('game_id');
+        //return '1';
     },
     getUrlParams: function(name){
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");

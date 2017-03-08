@@ -4,8 +4,8 @@ var star = function(){
 
 star.prototype.init = function(){
     this.r = 200*radio;
-    this.width = 160*radio;
-    this.height = 160*radio;
+    this.width = 300*radio;
+    this.height = 300*radio;
     this.x = win_w/2;
     this.y = win_h/2;
     this.life = 150*radio;
@@ -29,7 +29,7 @@ star.prototype.draw = function(){
     ctx.strokeStyle = "#000";
     ctx.translate(this.x-this.width/2,this.y-this.height/2);
     var pattern = ctx.createPattern(document.getElementById('star'), "no-repeat");
-    ctx.arc(this.width/2,this.height/2,120, 0, Math.PI*2, false);  
+    ctx.arc(this.width/2,this.height/2,this.width/2, 0, Math.PI*2, false);  
     ctx.fillStyle = pattern;
     ctx.translate(0,0);
     ctx.fill();
@@ -83,7 +83,7 @@ star.prototype.lose = function(){
             success: function(data){
                 console.log(data);
                 if(data.code == 0){
-                    window.location.href = 'game-over.html?score='+people.score;
+                    window.location.href = 'game-over.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id+'&score='+people.score;
                 }else{
                     alert(data.message);
                 }

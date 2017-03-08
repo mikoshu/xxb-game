@@ -16,7 +16,7 @@
    		<p class="score" id="score">0</p>
    		<a href="javascript:;" class="retry-btn" id="retry">再来一次</a>
    		<ul class="tab clearfix">
-   			<li class="on" >班级排名<img src="images/icon.png" alt=""></li>
+   			<li class="on" >班级排名<img id="icon" src="images/icon.png" alt=""></li>
    			<li>全明星排名</li>
    		</ul>
    		<div class="list class-list">
@@ -181,6 +181,19 @@
                 }
             });
 
+            util.requestPost({
+                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  token:token,
+                  data:{
+                      u_id: u_id,
+                  },
+                  success: function(data){
+                  	if(data.code == 0){
+                  		$("#icon").attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_icon)
+                  	}
+                  }
+              });
+
             $(".tab").find('li').on('touchstart',function(){
                 var index = $(this).index();
                 $(this).addClass('on').siblings('li').removeClass('on');
@@ -199,7 +212,9 @@
 	                success: function(data){
 	                	console.log(data)
 	                	if(data.code == 0 ){
-	                		window.location.href = 'game.html';
+	                		window.location.href = 'game.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id;
+	                	}else{
+	                		alert(data.message);
 	                	}
 	                }
 	            });
