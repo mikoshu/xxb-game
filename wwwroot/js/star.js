@@ -4,8 +4,8 @@ var star = function(){
 
 star.prototype.init = function(){
     this.r = 200*radio;
-    this.width = 175*radio;
-    this.height = 234*radio;
+    this.width = 160*radio;
+    this.height = 160*radio;
     this.x = win_w/2;
     this.y = win_h/2;
     this.life = 150*radio;
@@ -25,17 +25,26 @@ star.prototype.draw = function(){
 
     ctx.save();
     ctx.beginPath();
-    ctx.fillStyle = 'rgba(255,255,255,1)';
     ctx.lineWidth = 8;
     ctx.strokeStyle = "#000";
-    ctx.arc(this.x,this.y,120, 0, Math.PI*2, false);  
+    ctx.translate(this.x-this.width/2,this.y-this.height/2);
+    var pattern = ctx.createPattern(document.getElementById('star'), "no-repeat");
+    ctx.arc(this.width/2,this.height/2,120, 0, Math.PI*2, false);  
+    ctx.fillStyle = pattern;
+    ctx.translate(0,0);
+    ctx.fill();
     ctx.stroke();
     ctx.closePath();
-    ctx.fill();
     ctx.restore();
 
+    // ctx.save();
+    // var pattern = ctx.createPattern(document.getElementById('star'), "no-repeat");
+    // ctx.arc(this.x,this.y,80,0,2 * Math.PI,false);
+    // ctx.fillStyle = pattern;
+    // ctx.fill(); 
+    // ctx.restore();
 
-    ctx.drawImage(document.getElementById('star'),this.x - this.width/2,this.y - this.height/2,this.width,this.height);
+    //ctx.drawImage(document.getElementById('star'),this.x - this.width/2,this.y - this.height/2,this.width,this.height);
 
     this.drawLine(this.life,'#666');
     this.drawLine(this.nowLife,'rgba(255,255,255,1)');

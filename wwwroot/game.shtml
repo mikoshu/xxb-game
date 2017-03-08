@@ -56,7 +56,7 @@
     <img id="hit" src="images/xin2.png" style="display:none" alt="">
     <img id="role" src="images/role.png" style="display:none" alt="">
     <img id="role2" src="images/role-b.png" style="display:none" alt="">
-    <img id="star" src="images/star.png" style="display: none" alt="">
+    <img id="star" src="images/star.png" width="160" height="160" style="display: none" alt="">
     <img id="blood" src="images/blood.png" style="display: none" alt="">
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/util.js"></script>

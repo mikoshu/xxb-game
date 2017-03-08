@@ -236,6 +236,17 @@
 	                }
 	            });
             });
+
+            util.requestPost({
+                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  token:token,
+                  data:{
+                      u_id: u_id,
+                  },
+                  success: function(data){
+                    console.log(data)
+                  }
+              });
             
        });
    </script>
