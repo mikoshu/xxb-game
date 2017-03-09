@@ -179,9 +179,10 @@ $w:640;
     border:rem(4) solid transparent;
     img{
       display: none;
-      width:rem(44);
-      height:rem(40);
-      vertical-align: rem(-9);
+      width:rem(55);
+      height:rem(50);
+      vertical-align: rem(-15);
+      margin-left:rem(-8);
     }
     &:last-child{
       left:auto;

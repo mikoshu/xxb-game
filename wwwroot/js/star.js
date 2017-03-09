@@ -3,7 +3,7 @@ var star = function(){
 }
 
 star.prototype.init = function(){
-    this.r = 200*radio;
+    this.r = 160*radio;
     this.width = 200*radio;
     this.height = 200*radio;
     this.x = win_w/2;
