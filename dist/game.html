@@ -67,9 +67,31 @@
             font-weight: bold;
             z-index: 999;
         }
+        .cover{
+            position: fixed;
+            width:100%;
+            height:100%;
+            left: 0;
+            top: 0;
+            background: rgba(0,0,0,.8);
+            z-index: 9999;
+        }
+        .cover span{
+            position:absolute;
+            left: 50%;
+            top:50%;
+            width:611px;
+            height:222px;
+            background: url(images/cover.png) no-repeat;
+            transform: translate(-50%,-50%);
+            -webkit-transform: translate(-50%,-50%);
+        }
     </style>
 </head>
 <body>
+    <div class="cover">
+        <span></span>
+    </div>
 	<span id="score">0</span>
     <canvas id="canvas" >纳尼？！！你的浏览器不支持canvas？你该换浏览器啦！</canvas>
     <img id="bg" src="images/bg.jpg" style="display:none" alt="">
@@ -79,6 +101,8 @@
     <img id="star" src="images/star.png" width="160" height="160" style="display: none" alt="">
     <img id="blood1" src="images/blood.png" style="display: none" alt="">
     <img id="blood2" src="images/blood2.png" style="display: none" alt="">
+    <img id="cut1" src="images/cuts.png" style="display: none"  alt="">
+    <img id="cut2" src="images/cuts2.png" style="display: none"  alt="">
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/util.js"></script>
 <script src="js/md5.min.js"></script>
