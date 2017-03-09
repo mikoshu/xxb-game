@@ -247,7 +247,7 @@
                   },
                   success: function(data){
                   	if(data.code == 0){
-                  		$("#icon").attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_icon)
+                  		$("#icon").attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/select-'+data.data.c_icon)
                   	}else{
                   		alert(data.message);
                   	}

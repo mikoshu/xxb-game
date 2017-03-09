@@ -12,7 +12,7 @@ window.requestAnimFrame = window.requestAnimationFrame ||
                           window.mozRequestAnimationFrame || 
                           window.oRequestAnimationFrame || 
                           window.msRequestAnimationFrame;
-var isPlaying = true;
+var isPlaying = false;
 var radio = 1;
 // 获取app传递参数
 var token = util.getToken();
@@ -110,9 +110,7 @@ canvas.addEventListener('touchstart',function(e){
     Me.isMove = true;
 });
 
-window.onload = function(){
-    loop();
-}
+
 
 $(document).ready(function(){
     util.requestPost({
@@ -123,12 +121,18 @@ $(document).ready(function(){
           },
           success: function(data){
             if(data.code == 0){
-                $('#star').attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_pic_id);
+                $('#star').attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_pic_id+'?x-oss-process=image/resize,h_200');
             }else{
                 alert('明星头像获取失败！')
             }
           }
       });
+
+    $(".cover").on('touchstart',function(){
+        $(this).hide();
+        isPlaying = true;
+        loop();
+    });
 });
 
 //}

@@ -11,22 +11,22 @@ people.prototype.init = function(){
     this.all = 30;
     this.x = [];
     this.y = [];
+    this.type = []; // 记录人物类型
     this.speed = [];
     this.baseSpeed = 400; // 基础速度，值越小，速度越快
-    //this.x = []; // 记录鼠标位置x
-    //this.y = []; // 记录鼠标位置y
     this.isTouch = []; // 判断是否和人物碰撞
     this.success = []; // 判断是否到达终点
     this.count = [];  // 到达终点后计数
     this.blood = []; // 击中后的血迹
     this.showBlood = [];
     this.attack = 10; // 攻击力
-    this.interval = 50; // 设置到达终点切未被打飞的小人每n帧攻击一次
+    this.interval = 30; // 设置到达终点切未被打飞的小人每n帧攻击一次
     this.score = 0;
     this.getScort = 10;
     this.pre = 4;
     this.imgIndex = [];
     this.img = [];
+    this.cut = [];
 
     for(var i=0;i<this.all; i++){
         this.born(i);
@@ -64,6 +64,11 @@ people.prototype.draw = function(){
             this.imgIndex[i] = 0;
         }
 
+        if(typeof(this.cut[i]) == 'object' ){ // 画蔬菜破碎后痕迹
+            this.trace(i);
+            console.log(1)
+        }
+
         //console.log(this.x[i],)
     }
     
@@ -84,15 +89,12 @@ people.prototype.born = function(i){
     }
     var type = parseInt(Math.random()*3);
     type = type == 0 ? 1 : type;
+    this.type[i] = type;
     this.img[i] = document.getElementById('role'+type);
     this.speed[i] = {} // 每个人物速度不同 
     var interval = Math.random()*200 + this.baseSpeed; 
     this.speed[i].x = (win_w/2 - this.x[i])/interval;
     this.speed[i].y = (win_h/2 - this.y[i])/interval;
-    //this.x[i] = (Math.random() - 0.5) * 2000 + win_w/2; 
-    //this.y[i] = (Math.random() - 0.5) * 2000 + win_h/2;
-    //this.x[i] = this.x[i];
-    //this.y[i] = this.y[i];
     this.isTouch[i] = false; 
     this.success[i] = false;
     this.count[i] = 0;
@@ -127,7 +129,13 @@ people.prototype.boom = function(i){
         }else{
             if(!this.success[i]){
                 star.nowLife = star.nowLife > this.attack ? star.nowLife - this.attack : 0;
-                this.success[i] = true;
+                this.cut[i] = {};
+                this.cut[i].x = this.x[i];
+                this.cut[i].y = this.y[i];
+                this.cut[i].img = document.getElementById('cut'+this.type[i]);
+                //debugger
+                this.born(i);
+                //this.success[i] = true; // 用于判定是否持续攻击
             }else{
                 this.count[i] += 1;
                 if(this.count[i] == this.interval){
@@ -170,4 +178,34 @@ people.prototype.drowBlood = function(i,x,y,img){ // 绘制血迹
     ctx.drawImage(img,0,0,330,81);
     ctx.translate(0,0);
     ctx.restore();
+}
+
+people.prototype.trace = function(i){
+    this.count[i] += 1;
+    if(this.count[i] == this.interval){
+        this.count[i] = 0;
+        this.cut[i] = '';
+    }else{
+        var x = this.cut[i].x;
+        var y = this.cut[i].y;
+        var r = Math.sqrt(Math.pow(win_w/2-x,2) + Math.pow(win_h/2-y,2));
+        var deg = Math.acos( (x - win_w/2)/r);
+        deg = y < win_h/2 ? deg : -deg; // 判断血液溅射方向
+        if( (y > win_h/2 && x < win_w/2) || (y < win_h/2 && x > win_w/2) ){
+            x = x < win_w/2 ? x+this.width/2 : x-this.width/2;
+            y = y < win_h/2 ? y-this.height/2 : y+this.height/2;
+        }else{
+            x = x < win_w/2 ? x-this.width/2 : x+this.width/2;
+            y = y < win_h/2 ? y+this.height/2 : y-this.height/2;
+        }
+        
+        ctx.save();
+        ctx.translate(x,y);
+        ctx.rotate(-deg);
+        ctx.drawImage(this.cut[i].img,-20,-20,110,110);
+        ctx.translate(0,0);
+        ctx.restore();
+
+        //ctx.drawImage(document.getElementById('cut'),this.cut[i].x,this.cut[i].y,110,110);
+    }
 }

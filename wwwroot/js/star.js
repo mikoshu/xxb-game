@@ -4,8 +4,8 @@ var star = function(){
 
 star.prototype.init = function(){
     this.r = 200*radio;
-    this.width = 300*radio;
-    this.height = 300*radio;
+    this.width = 200*radio;
+    this.height = 200*radio;
     this.x = win_w/2;
     this.y = win_h/2;
     this.life = 150*radio;
