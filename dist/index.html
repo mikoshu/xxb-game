@@ -125,13 +125,20 @@
    <script src="js/md5.min.js"></script>
    <script src="js/util.js"></script>
    <script>
+      util.checkUA();
        $(document).ready(function(){
-       		var token = util.getToken();
+        
+       	var token = util.getToken();
     		var c_id = util.getClassId();
     		var u_id = util.getUserId();
     		var game_id = util.getGameId();
+
+        if(token==null || c_id==null || u_id==null || game_id==null){
+          alert('获取用户信息失败！');
+        }
+
     		var myPoint = {};
-    		console.log(u_id)
+    		
        		$(".tab").find('li').on('touchstart',function(){
                 var index = $(this).index();
                 $(this).addClass('on').siblings('li').removeClass('on');

@@ -97,6 +97,7 @@
     		var u_id = util.getUserId();
     		var game_id = util.getGameId();
     		var nowScore = util.getUrlParams('score') == 'null' ? 0 : util.getUrlParams('score');
+            util.checkUA();
     		$("#score").text(nowScore); // 获取上一局游戏分数
 
     		util.requestPost({

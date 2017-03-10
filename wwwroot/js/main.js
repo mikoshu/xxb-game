@@ -113,6 +113,7 @@ canvas.addEventListener('touchstart',function(e){
 
 
 $(document).ready(function(){
+    util.checkUA();
     util.requestPost({
           url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
           token:token,
