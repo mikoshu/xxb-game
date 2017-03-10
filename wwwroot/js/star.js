@@ -80,7 +80,7 @@ star.prototype.lose = function(){
             success: function(data){
                 console.log(data);
                 if(data.code == 0){
-                    window.location.href = 'game-over.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id+'&score='+people.score;
+                    window.location.replace('game-over.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id+'&score='+people.score);
                 }else{
                     alert(data.message);
                 }

@@ -130,9 +130,24 @@ $(document).ready(function(){
       });
 
     $(".cover").on('touchstart',function(){
-        $(this).hide();
-        isPlaying = true;
-        loop();
+        var self = this;
+        util.requestPost({
+            url: 'http://114.215.119.189:8080/xfans-service/3-6-4',
+            token:token,
+            data:{
+                u_id: u_id,
+                game_id: game_id,
+                c_id: c_id
+            },
+            success: function(data){
+                console.log(data)
+                $(self).hide();
+                isPlaying = true;
+                loop();
+            }
+        });
+
+        
     });
 });
 
