@@ -50,7 +50,7 @@ var util = {
     checkUA: function(){
         var ua = navigator.userAgent.toLowerCase(); // 检测是否从星小班app中打开
         if (!/xingxiaoban/.test(ua)) {
-            window.location.replace('error.html');
+            //window.location.replace('error.html');
         }
     }
 }

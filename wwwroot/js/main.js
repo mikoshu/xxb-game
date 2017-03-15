@@ -37,13 +37,15 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
 }
 
 
-// if(typeof(requestAnimationFrame) == 'undefined'){ // 兼容低版本安卓 
-//     radio = 0.5;
-//     win_w = window.innerWidth*radio;
-//     win_h = window.innerHeight*radio;
-//     canvas.width = win_w;
-//     canvas.height = win_h;
-// }
+if(typeof(requestAnimationFrame) == 'undefined'){ // 兼容低版本安卓 
+    alert('为了更好的游戏体验，请更换系统版本更好的手机进行游戏！');
+    window.history.back();
+    // radio = 0.5;
+    // win_w = window.innerWidth*radio;
+    // win_h = window.innerHeight*radio;
+    // canvas.width = win_w;
+    // canvas.height = win_h;
+}
 
 var star = new star();
 var  Me = new me();
@@ -115,7 +117,7 @@ canvas.addEventListener('touchstart',function(e){
 $(document).ready(function(){
     util.checkUA();
     util.requestPost({
-          url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+          url: 'http://120.24.219.228:8090/xfans-service/3-6-5',
           token:token,
           data:{
               u_id: u_id,
@@ -132,7 +134,7 @@ $(document).ready(function(){
     $(".cover").on('touchstart',function(){
         var self = this;
         util.requestPost({
-            url: 'http://114.215.119.189:8080/xfans-service/3-6-4',
+            url: 'http://120.24.219.228:8090/xfans-service/3-6-4',
             token:token,
             data:{
                 u_id: u_id,

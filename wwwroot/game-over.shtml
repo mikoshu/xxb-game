@@ -101,7 +101,7 @@
     		$("#score").text(nowScore); // 获取上一局游戏分数
 
     		util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-1',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-1',
                 token:token,
                 data:{
                     c_id: c_id,
@@ -141,7 +141,7 @@
             });
 
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-2',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-2',
                 token:token,
                 data:{
                     u_id: u_id,
@@ -183,7 +183,7 @@
             });
 
             util.requestPost({
-                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  url: 'http://120.24.219.228:8090/xfans-service/3-6-5',
                   token:token,
                   data:{
                       u_id: u_id,

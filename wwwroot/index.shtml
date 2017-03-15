@@ -111,11 +111,11 @@
    		<div class="my-box">
    			<div class='my clearfix'>
    				<span class="my-num">
-   					<span id="my-num">168</span>
+   					<span id="my-num">0</span>
    				</span>
    				
    				<span class="my-high">我的最高分</span>
-   				<span class="my-score">1454</span>
+   				<span class="my-score">0</span>
    			</div>
    			<a href="#" class="cost-btn">快用两朵花守护爱豆</a>
    			<div class="flowers"></div>
@@ -152,7 +152,7 @@
                 }
             });
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-1',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-1',
                 token:token,
                 data:{
                     c_id: c_id,
@@ -190,7 +190,7 @@
             });
 
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-2',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-2',
                 token:token,
                 data:{
                     u_id: u_id,
@@ -231,7 +231,7 @@
             });
 
             util.requestPost({
-                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  url: 'http://120.24.219.228:8090/xfans-service/3-6-5',
                   token:token,
                   data:{
                       u_id: u_id,
