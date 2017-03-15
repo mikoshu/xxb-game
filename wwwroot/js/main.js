@@ -14,6 +14,7 @@ window.requestAnimFrame = window.requestAnimationFrame ||
                           window.msRequestAnimationFrame;
 var isPlaying = false;
 var radio = 1;
+var taped = false;
 // 获取app传递参数
 var token = util.getToken();
 var c_id = util.getClassId();
@@ -133,22 +134,28 @@ $(document).ready(function(){
 
     $(".cover").on('touchstart',function(){
         var self = this;
-        util.requestPost({
-            url: 'http://120.24.219.228:8090/xfans-service/3-6-4',
-            token:token,
-            data:{
-                u_id: u_id,
-                game_id: game_id,
-                c_id: c_id
-            },
-            success: function(data){
-                console.log(data)
-                $(self).hide();
-                isPlaying = true;
-                loop();
-            }
-        });
-
+        if(!taped){
+            util.requestPost({
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-4',
+                token:token,
+                data:{
+                    u_id: u_id,
+                    game_id: game_id,
+                    c_id: c_id
+                },
+                success: function(data){
+                    if(data.code == 0){
+                        $(self).hide();
+                        isPlaying = true;
+                        loop();
+                    }else{
+                        taped = false;
+                        alert(data.message);
+                    }
+                }
+            });
+            taped = true;
+        }
         
     });
 });

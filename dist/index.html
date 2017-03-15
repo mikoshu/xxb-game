@@ -25,7 +25,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="class-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><img src="images/no1.png" alt=""></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
@@ -44,7 +44,7 @@
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
 	   			
    			</ul>
    		</div>
@@ -58,7 +58,7 @@
                 </li>
             </ul>
             <ul class="table" id="all-list">
-                <li class="tr clearfix">
+                <!-- <li class="tr clearfix">
                     <span class="num"><span>01</span></span>
                     <span class="name">test</span>
                     <span class="star">周杰伦</span>
@@ -105,7 +105,7 @@
                     <span class="name">test</span>
                     <span class="star">周杰伦</span>
                     <span class="score">1788</span>
-                </li>
+                </li> -->
             </ul>
         </div>
    		<div class="my-box">
@@ -135,6 +135,7 @@
 
         if(token==null || c_id==null || u_id==null || game_id==null){
           alert('获取用户信息失败！');
+          window.location.replace('error.html');
         }
 
     		var myPoint = {};

@@ -28,7 +28,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="class-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
@@ -47,7 +47,7 @@
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
    			</ul>
    		</div>
    		<div class="list" style="display:none">
@@ -60,7 +60,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="all-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="star">周杰伦</span>
@@ -83,7 +83,7 @@
 	   				<span class="name">test</span>
 	   				<span class="star">周杰伦</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
    			</ul>
    		</div>
    </div>
@@ -150,7 +150,6 @@
                     page_size:'8'
                 },
                 success: function(data){
-                	console.log(data)
                 	if(data.code == 0){
                 		var html = '';
                 		var active = '';
