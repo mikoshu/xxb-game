@@ -217,8 +217,13 @@ $w:640;
   }
   span{
     float: left;
+    height:rem(60);
     display: block;
     line-height: rem(70);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-text-overflow:ellipsis;
+    white-space:nowrap;
   }
   .num{
     width:rem(100);

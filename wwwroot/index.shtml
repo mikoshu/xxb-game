@@ -25,7 +25,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="class-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><img src="images/no1.png" alt=""></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
@@ -44,7 +44,7 @@
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
 	   			
    			</ul>
    		</div>
@@ -58,7 +58,7 @@
                 </li>
             </ul>
             <ul class="table" id="all-list">
-                <li class="tr clearfix">
+                <!-- <li class="tr clearfix">
                     <span class="num"><span>01</span></span>
                     <span class="name">test</span>
                     <span class="star">周杰伦</span>
@@ -105,17 +105,17 @@
                     <span class="name">test</span>
                     <span class="star">周杰伦</span>
                     <span class="score">1788</span>
-                </li>
+                </li> -->
             </ul>
         </div>
    		<div class="my-box">
    			<div class='my clearfix'>
    				<span class="my-num">
-   					<span id="my-num">168</span>
+   					<span id="my-num">0</span>
    				</span>
    				
    				<span class="my-high">我的最高分</span>
-   				<span class="my-score">1454</span>
+   				<span class="my-score">0</span>
    			</div>
    			<a href="#" class="cost-btn">快用两朵花守护爱豆</a>
    			<div class="flowers"></div>
@@ -134,7 +134,8 @@
     		var game_id = util.getGameId();
 
         if(token==null || c_id==null || u_id==null || game_id==null){
-          alert('获取用户信息失败！');
+          //alert('获取用户信息失败！');
+          window.location.replace('error.html');
         }
 
     		var myPoint = {};
@@ -152,7 +153,7 @@
                 }
             });
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-1',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-1',
                 token:token,
                 data:{
                     c_id: c_id,
@@ -190,7 +191,7 @@
             });
 
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-2',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-2',
                 token:token,
                 data:{
                     u_id: u_id,
@@ -231,7 +232,7 @@
             });
 
             util.requestPost({
-                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  url: 'http://120.24.219.228:8090/xfans-service/3-6-5',
                   token:token,
                   data:{
                       u_id: u_id,

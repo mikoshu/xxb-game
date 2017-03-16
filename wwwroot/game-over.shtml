@@ -28,7 +28,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="class-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
@@ -47,7 +47,7 @@
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
    			</ul>
    		</div>
    		<div class="list" style="display:none">
@@ -60,7 +60,7 @@
 	   			</li>
    			</ul>
    			<ul class="table" id="all-list">
-   				<li class="tr clearfix">
+   				<!-- <li class="tr clearfix">
 	   				<span class="num"><span>01</span></span>
 	   				<span class="name">test</span>
 	   				<span class="star">周杰伦</span>
@@ -83,7 +83,7 @@
 	   				<span class="name">test</span>
 	   				<span class="star">周杰伦</span>
 	   				<span class="score">1788</span>
-	   			</li>
+	   			</li> -->
    			</ul>
    		</div>
    </div>
@@ -101,7 +101,7 @@
     		$("#score").text(nowScore); // 获取上一局游戏分数
 
     		util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-1',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-1',
                 token:token,
                 data:{
                     c_id: c_id,
@@ -141,7 +141,7 @@
             });
 
             util.requestPost({
-                url: 'http://114.215.119.189:8080/xfans-service/3-6-2',
+                url: 'http://120.24.219.228:8090/xfans-service/3-6-2',
                 token:token,
                 data:{
                     u_id: u_id,
@@ -150,7 +150,6 @@
                     page_size:'8'
                 },
                 success: function(data){
-                	console.log(data)
                 	if(data.code == 0){
                 		var html = '';
                 		var active = '';
@@ -183,7 +182,7 @@
             });
 
             util.requestPost({
-                  url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+                  url: 'http://120.24.219.228:8090/xfans-service/3-6-5',
                   token:token,
                   data:{
                       u_id: u_id,

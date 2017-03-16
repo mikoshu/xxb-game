@@ -68,7 +68,7 @@ star.prototype.lose = function(){
     if(this.nowLife == 0){
         isPlaying = false;
         util.requestPost({
-            url: 'http://114.215.119.189:8080/xfans-service/3-6-3',
+            url: 'http://120.24.219.228:8090/xfans-service/3-6-3',
             token:token,
             data:{
                 c_id: c_id,
