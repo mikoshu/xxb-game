@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>和我一起接唱</title>
+	<meta charset="utf-8" />
+    <meta name="screen-orientation" content="portrait"/>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <script src="js/flexible.js"></script>
+</head>
+<body>
+	<div class="index">
+		<div class="list">
+			<ul class="swiper-wrapper">
+				<li class="swiper-slide">
+					<img src="images/img.jpg" alt="">
+					<dl class="clearfix">
+						<dd>
+							<img src="images/avatar.png" alt="">
+						</dd>
+						<dt>
+							<h3>蒲公英约定</h3>
+							<p>
+								<ins></ins>
+								<ins></ins>
+								<ins></ins>
+							</p>
+						</dt>
+					</dl>
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img.jpg" alt="">
+					<dl class="clearfix">
+						<dd>
+							<img src="images/avatar.png" alt="">
+						</dd>
+						<dt>
+							<h3>蒲公英约定</h3>
+							<p>
+								<ins></ins>
+								<ins></ins>
+								<ins></ins>
+							</p>
+						</dt>
+					</dl>
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img.jpg" alt="">
+					<dl class="clearfix">
+						<dd>
+							<img src="images/avatar.png" alt="">
+						</dd>
+						<dt>
+							<h3>蒲公英约定</h3>
+							<p>
+								<ins></ins>
+								<ins></ins>
+								<ins></ins>
+							</p>
+						</dt>
+					</dl>
+				</li>
+				<li class="swiper-slide">
+					<img src="images/img.jpg" alt="">
+					<dl class="clearfix">
+						<dd>
+							<img src="images/avatar.png" alt="">
+						</dd>
+						<dt>
+							<h3>蒲公英约定</h3>
+							<p>
+								<ins></ins>
+								<ins></ins>
+								<ins></ins>
+							</p>
+						</dt>
+					</dl>
+				</li>
+			</ul>
+		</div>
+		<a class="btn" href="javascript:;">开始挑战</a>
+		<div class="rule">
+			<p>累计接唱成功1000=1个现场荧光棒</p>
+			<p>荧光棒将有合作后援团在演唱会当天免费领取</p>
+			<p>经费均来自星小班“渔民应援基金”提供</p>
+		</div>
+		<div class="img-box">
+			<img src="images/img-xxb.png" alt="">
+			x
+			<img src="images/img-jay.png" alt="">
+		</div>
+	</div>
+	<script src="js/swiper.min.js"></script>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		var swiper = new Swiper('.list', {
+	        effect: 'coverflow',
+	        grabCursor: true,
+	        centeredSlides: true,
+	        slidesPerView: 3,
+	        spaceBetween: 30,
+	        initialSlide :2,
+	        coverflow: {
+	            rotate: 0,
+	            stretch: 0,
+	            depth: 100,
+	            modifier: 1,
+	            slideShadows : false
+	        },
+	        onInit: function(s){
+	        	//$(".list").find('li').eq(s.activeIndex).css('width','7.2rem');
+	        	console.log(s.activeIndex)
+	        },
+	        onTransitionEnd: function(s){
+	        	console.log(s.activeIndex)
+	        }
+	    });
+	})
+    
+	</script>
+</body>
+</html>

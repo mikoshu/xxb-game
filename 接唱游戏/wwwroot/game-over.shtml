@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>游戏结束</title>
+	<meta charset="utf-8" />
+    <meta name="screen-orientation" content="portrait"/>
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/flexible.js"></script>
+</head>
+<body>
+	<div class="game-over">
+		<div class="score">3574</div>
+		<div class="btn-box">
+			<a href="javascript:;" class="btn">继续接唱</a>
+			<a href="javascript:;" class="btn">分享给小伙伴</a>
+		</div>
+		<div class="footer">
+			<p>分享给小伙伴可领取贡献证书</p>
+			<p>星小班内可无限接唱</p>
+		</div>
+	</div>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		
+	})
+    
+	</script>
+</body>
+</html>
