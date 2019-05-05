@@ -113,20 +113,20 @@ canvas.addEventListener('touchstart',function(e){
 
 
 $(document).ready(function(){
-    util.requestPost({
-          url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
-          token:token,
-          data:{
-              u_id: u_id,
-          },
-          success: function(data){
-            if(data.code == 0){
-                $('#star').attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_pic_id+'?x-oss-process=image/resize,h_200');
-            }else{
-                alert('明星头像获取失败！')
-            }
-          }
-      });
+    // util.requestPost({
+    //       url: 'http://114.215.119.189:8080/xfans-service/3-6-5',
+    //       token:token,
+    //       data:{
+    //           u_id: u_id,
+    //       },
+    //       success: function(data){
+    //         if(data.code == 0){
+    //             $('#star').attr('src','http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/'+data.data.c_pic_id+'?x-oss-process=image/resize,h_200');
+    //         }else{
+    //             alert('明星头像获取失败！')
+    //         }
+    //       }
+    //   });
 
     $(".cover").on('touchstart',function(){
         $(this).hide();
