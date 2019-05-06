@@ -67,25 +67,29 @@ star.prototype.drawLine = function(width,color){
 star.prototype.lose = function(){
     if(this.nowLife == 0){
         isPlaying = false;
-        util.requestPost({
-            url: 'http://114.215.119.189:8080/xfans-service/3-6-3',
-            token:token,
-            data:{
-                c_id: c_id,
-                point: people.score,
-                u_id: u_id,
-                game_id: game_id,
+        alert('游戏结束，您的得分'+ people.score)
+        reset();
+
+        // util.requestPost({
+        //     url: 'http://114.215.119.189:8080/xfans-service/3-6-3',
+        //     token:token,
+        //     data:{
+        //         c_id: c_id,
+        //         point: people.score,
+        //         u_id: u_id,
+        //         game_id: game_id,
                 
-            },
-            success: function(data){
-                console.log(data);
-                if(data.code == 0){
-                    window.location.href = 'game-over.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id+'&score='+people.score;
-                }else{
-                    alert(data.message);
-                }
-            }
-        });
+        //     },
+        //     success: function(data){
+        //         console.log(data);
+        //         if(data.code == 0){
+        //             window.location.href = 'game-over.html?token='+token+'&u_id='+u_id+'&c_id='+c_id+'&game_id='+game_id+'&score='+people.score;
+        //         }else{
+        //             alert(data.message);
+        //         }
+        //     }
+        // });
+        //window.location.href = 'game-over.html'
         //console.log(timmer)
         //cancelAnimationFrame(timmer);
         //reset(); // 重新开始
