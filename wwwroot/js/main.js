@@ -95,7 +95,7 @@ function shake(){
 
 document.addEventListener('touchstart',function(e){
     e.preventDefault();
-})
+},{passive:false})
 canvas.addEventListener('touchmove',function(e){
     var touch = e.changedTouches[0];
     Me.toX = touch.clientX;
