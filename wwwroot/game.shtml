@@ -89,23 +89,20 @@
     </style>
 </head>
 <body>
-    <div class="cover">
+    <div class="cover" id="cover">
         <span></span>
     </div>
 	<span id="score">0</span>
     <canvas id="canvas" >纳尼？！！你的浏览器不支持canvas？你该换浏览器啦！</canvas>
     <img id="bg" src="images/bg.jpg" style="display:none" alt="">
-    <img id="hit" src="images/xin2.png" style="display:none" alt="">
-    <img id="role1" src="images/role.png" style="display:none" alt="">
-    <img id="role2" src="images/role-b.png" style="display:none" alt="">
+    <img id="hit" src="images/hit.png" style="display:none" alt="">
+    <img id="role1" src="images/role3.png" style="display:none" alt="">
+    <img id="role2" src="images/role3.png" style="display:none" alt="">
     <img id="star" src="images/star.png" width="160" height="160" style="display: none" alt="">
     <img id="blood1" src="images/blood.png" style="display: none" alt="">
     <img id="blood2" src="images/blood2.png" style="display: none" alt="">
     <img id="cut1" src="images/cuts.png" style="display: none"  alt="">
     <img id="cut2" src="images/cuts2.png" style="display: none"  alt="">
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/util.js"></script>
-<script src="js/md5.min.js"></script>
 <script src="js/star.js"></script>
 <script src="js/me.js" ></script>
 <script src="js/people.js"></script>

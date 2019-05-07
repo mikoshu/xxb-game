@@ -12,13 +12,20 @@ window.requestAnimFrame = window.requestAnimationFrame ||
                           window.mozRequestAnimationFrame || 
                           window.oRequestAnimationFrame || 
                           window.msRequestAnimationFrame;
+
+window.cancelAnimationFrame = window.cancelAnimationFrame ||
+                          Window.webkitCancelAnimationFrame ||
+                          window.mozCancelAnimationFrame ||
+                          window.msCancelAnimationFrame ||
+                          window.oCancelAnimationFrame ||
+                          function( id ){
+                              //为了使setTimteout的尽可能的接近每秒60帧的效果
+                              window.clearTimeout( id );
+                          }                          
+
+
 var isPlaying = false;
 var radio = 1;
-// 获取app传递参数
-var token = util.getToken();
-var c_id = util.getClassId();
-var u_id = util.getUserId();
-var game_id = util.getGameId();
 var imgStar = document.getElementById('star');
 var myScore = document.getElementById('score');
 
@@ -52,10 +59,15 @@ var people = new people();
 
 
 function reset(){
+    document.getElementById('score').innerHTML = '0';
     Me.init();
     star.init();
     people.init();
-    document.getElementById('score').innerHTML = '0';
+    cancelAnimationFrame(window.timmer)
+    setTimeout(()=>{
+        isPlaying = true;
+        loop()
+    })
 }
 
 function loop(){   // loop function 
@@ -64,15 +76,12 @@ function loop(){   // loop function
     Me.draw();
     star.draw();
     people.draw();
-    
-    if(isPlaying && typeof(requestAnimationFrame) == 'function' ){
-        timmer = requestAnimationFrame(loop);
+    if(isPlaying){
+        window.timmer = requestAnimFrame(loop);
     }
 }
 
-if(typeof(requestAnimationFrame) == 'undefined' && isPlaying){
-    timmer = setInterval(loop,20);
-}
+    
 
 
 
@@ -112,12 +121,13 @@ canvas.addEventListener('touchstart',function(e){
 
 
 
-$(document).ready(function(){
-    $(".cover").on('touchstart',function(){
-        $(this).hide();
+window.onload = function(){
+    var cover = document.getElementById('cover')
+    cover.addEventListener('touchstart',function(){
+        cover.style.display = 'none'
         isPlaying = true;
         loop();
-    });
-});
+    })
+}
 
 //}

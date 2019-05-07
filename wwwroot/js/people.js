@@ -64,12 +64,10 @@ people.prototype.draw = function(){
             this.imgIndex[i] = 0;
         }
 
-        if(typeof(this.cut[i]) == 'object' ){ // 画蔬菜破碎后痕迹
-            this.trace(i);
-            console.log(1)
-        }
+        // if(typeof(this.cut[i]) == 'object' ){ // 画蔬菜破碎后痕迹
+        //     this.trace(i);
+        // }
 
-        //console.log(this.x[i],)
     }
     
 }
@@ -90,7 +88,7 @@ people.prototype.born = function(i){
     var type = parseInt(Math.random()*3);
     type = type == 0 ? 1 : type;
     this.type[i] = type;
-    this.img[i] = document.getElementById('role'+type);
+    this.img[i] = document.getElementById('role1');
     this.speed[i] = {} // 每个人物速度不同 
     var interval = Math.random()*200 + this.baseSpeed; 
     this.speed[i].x = (win_w/2 - this.x[i])/interval;
@@ -100,7 +98,7 @@ people.prototype.born = function(i){
     this.count[i] = 0;
     this.showBlood[i] = false;
     this.blood[i] = {};
-    this.blood[i].img = document.getElementById('blood'+type);
+    this.blood[i].img = document.getElementById('blood1');
     this.imgIndex[i] = 0;
 }
 
@@ -129,13 +127,7 @@ people.prototype.boom = function(i){
         }else{
             if(!this.success[i]){
                 star.nowLife = star.nowLife > this.attack ? star.nowLife - this.attack : 0;
-                this.cut[i] = {};
-                this.cut[i].x = this.x[i];
-                this.cut[i].y = this.y[i];
-                this.cut[i].img = document.getElementById('cut'+this.type[i]);
-                //debugger
-                this.born(i);
-                //this.success[i] = true; // 用于判定是否持续攻击
+                this.success[i] = true;
             }else{
                 this.count[i] += 1;
                 if(this.count[i] == this.interval){

@@ -66,12 +66,9 @@ star.prototype.drawLine = function(width,color){
 
 star.prototype.lose = function(){
     if(this.nowLife == 0){
+        alert('鸡你太美！！！，您的得分'+ people.score+',共打死了'+parseInt(people.score/10)+'只鸡！')
         isPlaying = false;
-        alert('游戏结束，您的得分'+ people.score)
         reset();
-        //window.location.href = 'game-over.html'
-        //console.log(timmer)
-        //cancelAnimationFrame(timmer);
         //reset(); // 重新开始
     }
 }
