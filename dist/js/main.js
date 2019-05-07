@@ -1,1 +1,133 @@
-function reset(){Me.init(),star.init(),people.init(),document.getElementById("score").innerHTML="0"}function loop(){ctx.clearRect(0,0,win_w,win_h),draw_bg(),Me.draw(),star.draw(),people.draw(),isPlaying&&"function"==typeof requestAnimationFrame&&(timmer=requestAnimationFrame(loop))}function draw_bg(){ctx.drawImage(document.getElementById("bg"),0,0,win_w,win_h)}function shake(){isShaked||(isShaked=!0,canvas.className="ani-shake",myScore.className="ani-scale",setTimeout(function(){canvas.className="",myScore.className=""},220)),isShaked=!1}var canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d"),win_w=window.innerWidth,win_h=window.innerHeight,timmer,isShaked=!1;canvas.width=win_w,canvas.height=win_h,window.requestAnimFrame=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame;var isPlaying=!1,radio=1,token=util.getToken(),c_id=util.getClassId(),u_id=util.getUserId(),game_id=util.getGameId(),imgStar=document.getElementById("star"),myScore=document.getElementById("score");CanvasRenderingContext2D.prototype.roundRect=function(e,t,n,i,a){var o=Math.min(n,i);return a>o/2&&(a=o/2),this.beginPath(),this.moveTo(e+a,t),this.arcTo(e+n,t,e+n,t+i,a),this.arcTo(e+n,t+i,e,t+i,a),this.arcTo(e,t+i,e,t,a),this.arcTo(e,t,e+n,t,a),this.closePath(),this};var star=new star,Me=new me,people=new people;"undefined"==typeof requestAnimationFrame&&isPlaying&&(timmer=setInterval(loop,20)),document.addEventListener("touchstart",function(e){e.preventDefault()}),canvas.addEventListener("touchmove",function(e){var t=e.changedTouches[0];Me.toX=t.clientX,Me.toY=t.clientY,Me.isMove=!0}),canvas.addEventListener("touchstart",function(e){var t=e.changedTouches[0];Me.toX=t.clientX,Me.toY=t.clientY,Me.isMove=!0}),$(document).ready(function(){util.requestPost({url:"http://114.215.119.189:8080/xfans-service/3-6-5",token:token,data:{u_id:u_id},success:function(e){0==e.code?$("#star").attr("src","http://xingxiaoban.img-cn-hangzhou.aliyuncs.com/"+e.data.c_pic_id+"?x-oss-process=image/resize,h_200"):alert("明星头像获取失败！")}}),$(".cover").on("touchstart",function(){$(this).hide(),isPlaying=!0,loop()})});
+//window.onload = function(){
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+var win_w = window.innerWidth;
+var win_h = window.innerHeight;
+var timmer;
+var isShaked = false;
+canvas.width = win_w;
+canvas.height = win_h;
+window.requestAnimFrame = window.requestAnimationFrame || 
+                          window.webkitRequestAnimationFrame || 
+                          window.mozRequestAnimationFrame || 
+                          window.oRequestAnimationFrame || 
+                          window.msRequestAnimationFrame;
+
+window.cancelAnimationFrame = window.cancelAnimationFrame ||
+                          Window.webkitCancelAnimationFrame ||
+                          window.mozCancelAnimationFrame ||
+                          window.msCancelAnimationFrame ||
+                          window.oCancelAnimationFrame ||
+                          function( id ){
+                              //为了使setTimteout的尽可能的接近每秒60帧的效果
+                              window.clearTimeout( id );
+                          }                          
+
+
+var isPlaying = false;
+var radio = 1;
+var imgStar = document.getElementById('star');
+var myScore = document.getElementById('score');
+
+CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+    var min_size = Math.min(w, h);
+    if (r > min_size / 2) r = min_size / 2;
+    // 开始绘制
+    this.beginPath();
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    this.closePath();
+    return this;
+}
+
+
+// if(typeof(requestAnimationFrame) == 'undefined'){ // 兼容低版本安卓 
+//     radio = 0.5;
+//     win_w = window.innerWidth*radio;
+//     win_h = window.innerHeight*radio;
+//     canvas.width = win_w;
+//     canvas.height = win_h;
+// }
+
+var star = new star();
+var  Me = new me();
+var people = new people();
+
+
+
+function reset(){
+    document.getElementById('score').innerHTML = '0';
+    Me.init();
+    star.init();
+    people.init();
+    cancelAnimationFrame(window.timmer)
+    setTimeout(()=>{
+        isPlaying = true;
+        loop()
+    })
+}
+
+function loop(){   // loop function 
+    ctx.clearRect(0,0,win_w,win_h);
+    draw_bg();
+    Me.draw();
+    star.draw();
+    people.draw();
+    if(isPlaying){
+        window.timmer = requestAnimFrame(loop);
+    }
+}
+
+    
+
+
+
+function draw_bg(){
+    ctx.drawImage(document.getElementById('bg'),0,0,win_w,win_h);
+}
+
+function shake(){
+    if(!isShaked){
+        isShaked = true;
+        canvas.className = 'ani-shake';
+        myScore.className = 'ani-scale';
+        setTimeout(function(){
+            canvas.className = '';
+            myScore.className = '';
+        },220)
+    }
+    isShaked = false;
+}
+
+document.addEventListener('touchstart',function(e){
+    e.preventDefault();
+},{passive:false})
+canvas.addEventListener('touchmove',function(e){
+    var touch = e.changedTouches[0];
+    Me.toX = touch.clientX;
+    Me.toY = touch.clientY;
+    Me.isMove = true;
+});
+
+canvas.addEventListener('touchstart',function(e){
+    var touch = e.changedTouches[0];
+    Me.toX = touch.clientX;
+    Me.toY = touch.clientY;
+    Me.isMove = true;
+});
+
+
+
+window.onload = function(){
+    var cover = document.getElementById('cover')
+    cover.addEventListener('touchstart',function(){
+        cover.style.display = 'none'
+        isPlaying = true;
+        loop();
+    })
+}
+
+//}
